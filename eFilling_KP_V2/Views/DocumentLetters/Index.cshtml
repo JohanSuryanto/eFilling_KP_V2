@@ -1,0 +1,65 @@
+﻿@model IEnumerable<eFilling_KP_V2.DocumentLetter>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Nomor Surat
+        </th>
+        <th>
+            Tanggal surat di buat
+        </th>
+        <th>
+            Asal surat
+        </th>
+        <th>
+            Pengirim
+        </th>
+        <th>
+            Instansi
+        </th>
+        <th>
+            Judul Surat
+        </th>
+        <th>
+            Action
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Document_From)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Document_Created_By_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Origin_Agency)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

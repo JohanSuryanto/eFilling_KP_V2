@@ -21,7 +21,7 @@ namespace eFilling_KP_V2.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("ApplicationDbContext", throwIfV1Schema: false)
         {
         }
 
@@ -29,5 +29,7 @@ namespace eFilling_KP_V2.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<eFilling_KP_V2.DocumentLetter> DocumentLetters { get; set; }
     }
 }
